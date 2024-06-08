@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyberbullying Detection</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <style>
+    body {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #04428e;
+      color: #fff;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background-color: #fff;
+      color: #0072ff;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h1>Cyberbullying Detection</h1>
+      <!-- Form for input -->
+      <form action="/predict" method="post" onsubmit="return validateForm()">
+        <label for="text">Enter text:</label>
+        <input type="text" id="text" name="text" required />
+        <button type="submit">Submit</button>
+      </form>
+
+      <!-- Display prediction result -->
+      <div class="result">
+        {% if prediction_text %}
+        <h2>Prediction:</h2>
+        <p style="color: {{ result_color }};">{{ prediction_text }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <script>
+      function validateForm() {
+        // You can add form validation logic here if needed
+        return true; // Return true to allow form submission, return false to prevent it
+      }
+    </script>
+  </body>
+</html>
